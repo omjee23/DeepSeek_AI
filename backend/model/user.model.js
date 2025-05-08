@@ -18,12 +18,19 @@ const userSchema = new mongoose.Schema({
         type:String,
         required:true
     }, 
-    otp:{
-        type:String,
-        token: String,
-        expires:Date,
-        required:true
+  otp: {
+    token: {
+        type: Number
+    },
+    expires: {
+        type: Date
+    },
+    isVerified: {
+        type: Boolean,
+        default: false
     }
+}
+
 })
 
 export const User = mongoose.model("User", userSchema);
