@@ -6,7 +6,7 @@ import dotenv from "dotenv"
 import cookieParser from 'cookie-parser';
 
 import userRoutes from './router/user.route.js';
-
+import promptRoutes from './router/prompt.route.js';
 
 dotenv.config()
 const app = express();
@@ -25,6 +25,7 @@ mongoose.connect(Mongo_URI)
 
 
 app.use('/api/user',userRoutes);
+app.use('/api/deepseekAI', promptRoutes)
 
 
 app.listen(port, () => {
